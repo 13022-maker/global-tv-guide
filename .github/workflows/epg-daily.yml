@@ -1,0 +1,73 @@
+name: EPG daily grab
+
+on:
+  schedule:
+    # 每天台灣時間 03:17（UTC 19:17）
+    - cron: '17 19 * * *'
+  workflow_dispatch:
+    inputs:
+      days:
+        description: '抓幾天（含今天）'
+        default: '3'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: epg-daily
+  cancel-in-progress: false
+
+jobs:
+  grab:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: Checkout this repo
+        uses: actions/checkout@v4
+
+      # 不 fork，直接在 runtime 拉最新 iptv-org/epg（site parser 修正會自動跟上）
+      - name: Checkout iptv-org/epg
+        uses: actions/checkout@v4
+        with:
+          repository: iptv-org/epg
+          path: epg-src
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: |
+            epg-src/package-lock.json
+            package-lock.json
+
+      - name: Install iptv-org/epg
+        working-directory: epg-src
+        run: npm ci
+
+      - name: Grab EPG
+        working-directory: epg-src
+        run: |
+          npm run grab --- \
+            --channels=../channels.xml \
+            --output=../tmp/guide.xml \
+            --days=${{ github.event.inputs.days || '3' }} \
+            --maxConnections=5 \
+            --timeout=30000
+          ls -lh ../tmp/guide.xml
+
+      - name: Convert XMLTV → JSON
+        run: |
+          npm ci
+          node scripts/xmltv-to-json.mjs tmp/guide.xml data/epg
+
+      - name: Commit data
+        run: |
+          git config user.name "epg-bot"
+          git config user.email "epg-bot@users.noreply.github.com"
+          git add data/epg
+          if git diff --cached --quiet; then
+            echo "No changes"
+          else
+            git commit -m "epg: $(TZ=Asia/Taipei date +%F)"
+            git push
+          fi

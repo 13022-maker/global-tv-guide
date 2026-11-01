@@ -1,0 +1,11 @@
+{
+  "name": "global-tv-guide",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "epg:json": "node scripts/xmltv-to-json.mjs tmp/guide.xml data/epg"
+  },
+  "dependencies": {
+    "fast-xml-parser": "^4.5.0"
+  }
+}

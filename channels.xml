@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<channels>
+  <!-- 日本（東京地區，tvguide.myjcom.jp area=108） -->
+  <channel site="tvguide.myjcom.jp" lang="ja" xmltv_id="JOAKDTV.jp@SD" site_id="2_1024_32736">NHK総合</channel>
+  <channel site="tvguide.myjcom.jp" lang="ja" xmltv_id="JOABDTV.jp@SD" site_id="2_1032_32737">NHK Eテレ</channel>
+  <channel site="tvguide.myjcom.jp" lang="ja" xmltv_id="JOAXDTV.jp@SD" site_id="2_1040_32738">日本テレビ</channel>
+  <channel site="tvguide.myjcom.jp" lang="ja" xmltv_id="JOEXDTV.jp@SD" site_id="2_1064_32741">テレビ朝日</channel>
+  <channel site="tvguide.myjcom.jp" lang="ja" xmltv_id="JORXDTV.jp@SD" site_id="2_1048_32739">TBS</channel>
+  <channel site="tvguide.myjcom.jp" lang="ja" xmltv_id="JOCXDTV.jp@SD" site_id="2_1056_32740">フジテレビ</channel>
+  <!-- 韓國 -->
+  <channel site="wavve.com" lang="ko" xmltv_id="KBS1TV.kr@SD" site_id="K01">KBS 1TV</channel>
+  <channel site="wavve.com" lang="ko" xmltv_id="KBS2TV.kr@SD" site_id="K02">KBS 2TV</channel>
+  <channel site="wavve.com" lang="ko" xmltv_id="MBCTV.kr@SD" site_id="M01">MBC</channel>
+  <channel site="wavve.com" lang="ko" xmltv_id="SBS.kr@SD" site_id="S01">SBS</channel>
+  <channel site="m.tving.com" lang="ko" xmltv_id="tvN.kr@SD" site_id="C00551">tvN</channel>
+  <!-- 英語新聞 -->
+  <channel site="singtel.com" lang="en" xmltv_id="BBCNews.uk@AsiaPacific" site_id="6166">BBC News</channel>
+  <channel site="singtel.com" lang="en" xmltv_id="CNNInternational.us@AsiaPacific" site_id="5167">CNN International</channel>
+  <channel site="www3.nhk.or.jp" lang="en" xmltv_id="NHKWorldJapan.jp@SD" site_id="0">NHK World-Japan</channel>
+  <channel site="aljazeera.com" lang="en" xmltv_id="AlJazeera.qa@English" site_id="aje#">Al Jazeera English</channel>
+  <!-- 體育 -->
+  <channel site="tvguide.myjcom.jp" lang="ja" xmltv_id="NHKBS.jp@SD" site_id="3_101_4">NHK BS</channel>
+  <channel site="singtel.com" lang="en" xmltv_id="beINSports.qa@MENA" site_id="6126">beIN SPORTS 1</channel>
+  <channel site="singtel.com" lang="en" xmltv_id="SPOTV.kr@SD" site_id="6114">SPOTV</channel>
+  <!-- 其他 -->
+  <channel site="arirang.com" lang="en" xmltv_id="ArirangWorld.kr@SD" site_id="CH_W">Arirang World</channel>
+  <channel site="starhubtvplus.com" lang="en" xmltv_id="TV5MondeAsia.fr@SD" site_id="0c28c445-abad-467d-9559-211174718745">TV5MONDE Asie</channel>
+</channels>
