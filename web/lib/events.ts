@@ -115,6 +115,24 @@ export const EVENTS: SiteEvent[] = [
   },
 ];
 
+export const CATEGORY_ZH: Record<SiteEvent['category'], string> = {
+  music: '音樂',
+  sports: '體育',
+  game: '電競',
+  movie: '電影',
+  news: '新聞',
+  space: '太空',
+};
+
+/** 尚未結束、依開始時間排序（ISR 重新產生時更新） */
+export function upcomingEvents(category?: SiteEvent['category']): SiteEvent[] {
+  const now = Date.now();
+  return EVENTS.filter((e) => e.main.start)
+    .filter((e) => !category || e.category === category)
+    .filter((e) => new Date(e.main.end ?? e.main.start!).getTime() > now)
+    .sort((a, b) => new Date(a.main.start!).getTime() - new Date(b.main.start!).getTime());
+}
+
 export function getEvent(slug: string): SiteEvent | undefined {
   return EVENTS.find((e) => e.slug === slug);
 }

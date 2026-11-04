@@ -94,6 +94,13 @@ h3 { font-size: 17px; margin: 24px 0 8px; }
 .sources h2 { font-size: 16px; color: var(--fg); }
 .updated { margin-top: 16px; }
 
+.event-list { list-style: none; padding: 0; margin: 0; }
+.event-list li { border-bottom: 1px solid var(--line); }
+.event-list a { display: grid; gap: 2px; padding: 14px 0; text-decoration: none; }
+.event-list .ev-time { color: var(--accent); font-weight: 700; font-variant-numeric: tabular-nums; }
+.event-list .ev-title { font-size: 18px; font-weight: 600; }
+.event-list .ev-place { color: var(--muted); font-size: 14px; }
+
 @media (max-width: 480px) {
   .countdown .cell { width: 64px; }
   .times th:last-child, .times td:last-child { display: none; }

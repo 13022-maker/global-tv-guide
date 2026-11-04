@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Countdown from '@/components/Countdown';
 import RemindButton from '@/components/RemindButton';
-import { EVENTS, getEvent, type SiteEvent } from '@/lib/events';
+import { CATEGORY_ZH, EVENTS, getEvent, type SiteEvent } from '@/lib/events';
 import { fmtDate, fmtShort, fmtTime, toCalUtc, TAIPEI } from '@/lib/time';
 
 export const revalidate = 3600;
@@ -13,15 +13,6 @@ export function generateStaticParams() {
 }
 
 type Params = { params: Promise<{ slug: string }> };
-
-const CATEGORY_ZH: Record<SiteEvent['category'], string> = {
-  music: '音樂',
-  sports: '體育',
-  game: '電競',
-  movie: '電影',
-  news: '新聞',
-  space: '太空',
-};
 
 const SITE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://example.com';
 
