@@ -59,13 +59,13 @@ export const EVENTS: SiteEvent[] = [
     otherSegments: [
       {
         label: 'Latin GRAMMY Premiere（大部分獎項在此頒發）',
-        start: null,
-        note: '當天稍早舉行，主辦單位尚未公布時間',
+        start: '2026-11-12T15:00:00-05:00',
+        note: '主辦單位表示會在 Latin Academy 平台直播，平台與台灣能否觀看尚未公布',
       },
       {
-        label: '年度人物晚會（Daddy Yankee）',
+        label: '年度人物致敬晚會（Daddy Yankee）',
         start: null,
-        note: '11/12 前一晚在拉斯維加斯舉行，時間待公布',
+        note: '11/11（美國時間）在拉斯維加斯舉行，不對外直播',
       },
     ],
     watch: [
@@ -90,28 +90,32 @@ export const EVENTS: SiteEvent[] = [
     ],
     highlights: [
       {
-        text: 'Daddy Yankee 獲選本屆「年度人物」，並名列典禮領銜表演者。他 10 月 30 日推出新專輯《La Postal》，與印度歌手 Diljit Dosanjh 合作的〈POKITO〉本週登上 YouTube 全球熱門前十。',
+        text: 'Daddy Yankee 是本屆拉丁錄音學院「年度人物」，11 月 11 日在拉斯維加斯接受致敬，也名列頒獎典禮表演者。他 10 月 30 日推出新專輯《La Postal》，與印度旁遮普歌手 Diljit Dosanjh 合作的〈POKITO〉本週登上 YouTube 熱門榜前十。',
         source: {
-          label: 'Metro PR',
-          url: 'https://www.metro.pr/entretenimiento/2026/10/20/daddy-yankee-y-rosalia-encabezaran-las-actuaciones-en-los-latin-grammy-2026/',
+          label: 'Latin GRAMMY 官方',
+          url: 'https://www.latingrammy.com/en/news/daddy-yankee-named-2026-latin-recording-academy-person-of-the-year',
         },
       },
     ],
     sources: [
       {
+        label: 'Latin GRAMMY 官方：第 27 屆典禮表演者與播出（Univision）',
+        url: 'https://www.latingrammy.com/en/news/second-lineup-announced-to-perform-at-the-27th-annual-latin-grammy-awards/',
+      },
+      {
+        label: 'Latin GRAMMY 官方：Premiere 演出與直播時間',
+        url: 'https://www.latingrammy.com/en/news/akapellah-pablo-alboran-carminho-jorge-celedon-yerai-cortes-gusi-kakalo-karen-lizarazo-victor-nain-jr-and-marina-sena-to-perform-at-the-latin-grammy-premiere/',
+      },
+      {
+        label: 'Latin GRAMMY 官方：Daddy Yankee 獲選 2026 年度人物',
+        url: 'https://www.latingrammy.com/en/news/daddy-yankee-named-2026-latin-recording-academy-person-of-the-year',
+      },
+      {
         label: 'AmericanTV：2026 Latin GRAMMYs 播出時間（11/12 8pm ET/PT、前導秀 7pm）',
         url: 'https://www.americantv.com/how-to-watch-2026-latin-grammys-on-directv.php',
       },
-      {
-        label: 'Latin GRAMMY：Daddy Yankee 獲選 2026 年度人物',
-        url: 'https://cms.latingrammy.com/en/news/daddy-yankee-named-2026-latin-recording-academy-person-of-the-year/',
-      },
-      {
-        label: 'Metro PR：Daddy Yankee、Rosalía 領銜表演',
-        url: 'https://www.metro.pr/entretenimiento/2026/10/20/daddy-yankee-y-rosalia-encabezaran-las-actuaciones-en-los-latin-grammy-2026/',
-      },
     ],
-    updatedAt: '2026-11-04T22:00:00+08:00',
+    updatedAt: '2026-11-05T08:00:00+08:00',
   },
 ];
 
