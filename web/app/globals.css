@@ -106,3 +106,10 @@ h3 { font-size: 17px; margin: 24px 0 8px; }
   .times th:last-child, .times td:last-child { display: none; }
   .times .tbd td:last-child { display: table-cell; }
 }
+
+/* 提醒已設定：明顯區分「設定前」與「設定後」 */
+.saved-badge {
+  display: inline-block; padding: 10px 14px; border-radius: 8px; font-weight: 700;
+  border: 1px solid var(--ok); background: color-mix(in srgb, var(--ok) 12%, transparent);
+}
+.remind-detail { margin: 8px 0 0; font-size: 14px; }
