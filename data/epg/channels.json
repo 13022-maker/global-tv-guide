@@ -1,0 +1,145 @@
+{
+  "updatedAt": "2026-11-05T00:23:48.191Z",
+  "channels": [
+    {
+      "id": "JOAKDTV.jp@SD",
+      "slug": "JOAKDTV.jp@SD",
+      "name": "NHK総合",
+      "icon": null,
+      "url": null
+    },
+    {
+      "id": "JOABDTV.jp@SD",
+      "slug": "JOABDTV.jp@SD",
+      "name": "NHK Eテレ",
+      "icon": null,
+      "url": null
+    },
+    {
+      "id": "JOAXDTV.jp@SD",
+      "slug": "JOAXDTV.jp@SD",
+      "name": "日本テレビ",
+      "icon": null,
+      "url": null
+    },
+    {
+      "id": "JOEXDTV.jp@SD",
+      "slug": "JOEXDTV.jp@SD",
+      "name": "テレビ朝日",
+      "icon": null,
+      "url": null
+    },
+    {
+      "id": "JORXDTV.jp@SD",
+      "slug": "JORXDTV.jp@SD",
+      "name": "TBS",
+      "icon": null,
+      "url": null
+    },
+    {
+      "id": "JOCXDTV.jp@SD",
+      "slug": "JOCXDTV.jp@SD",
+      "name": "フジテレビ",
+      "icon": null,
+      "url": null
+    },
+    {
+      "id": "KBS1TV.kr@SD",
+      "slug": "KBS1TV.kr@SD",
+      "name": "KBS 1TV",
+      "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/KBS_1_logo.svg/960px-KBS_1_logo.svg.png",
+      "url": null
+    },
+    {
+      "id": "KBS2TV.kr@SD",
+      "slug": "KBS2TV.kr@SD",
+      "name": "KBS 2TV",
+      "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/KBS_2_logo.svg/960px-KBS_2_logo.svg.png",
+      "url": null
+    },
+    {
+      "id": "MBCTV.kr@SD",
+      "slug": "MBCTV.kr@SD",
+      "name": "MBC",
+      "icon": "https://static.wikia.nocookie.net/logopedia/images/b/bd/Munhwa_Broadcasting_Corporation_2023.svg/revision/latest/scale-to-width-down/512",
+      "url": null
+    },
+    {
+      "id": "SBS.kr@SD",
+      "slug": "SBS.kr@SD",
+      "name": "SBS",
+      "icon": "https://i.imgur.com/4LHX71N.png",
+      "url": null
+    },
+    {
+      "id": "tvN.kr@SD",
+      "slug": "tvN.kr@SD",
+      "name": "tvN",
+      "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Logo_tvN.svg/960px-Logo_tvN.svg.png",
+      "url": null
+    },
+    {
+      "id": "BBCNews.uk@AsiaPacific",
+      "slug": "BBCNews.uk@AsiaPacific",
+      "name": "BBC News",
+      "icon": "https://dtil.tmsimg.com/assets/s158142_ld_h15_aa.png?lock=720x540",
+      "url": null
+    },
+    {
+      "id": "CNNInternational.us@AsiaPacific",
+      "slug": "CNNInternational.us@AsiaPacific",
+      "name": "CNN International",
+      "icon": "https://i.imgur.com/dfxefQw.png",
+      "url": null
+    },
+    {
+      "id": "NHKWorldJapan.jp@SD",
+      "slug": "NHKWorldJapan.jp@SD",
+      "name": "NHK World-Japan",
+      "icon": null,
+      "url": null
+    },
+    {
+      "id": "AlJazeera.qa@English",
+      "slug": "AlJazeera.qa@English",
+      "name": "Al Jazeera English",
+      "icon": "https://dtil.tmsimg.com/assets/s159135_ld_h15_aa.png?lock=720x540",
+      "url": null
+    },
+    {
+      "id": "NHKBS.jp@SD",
+      "slug": "NHKBS.jp@SD",
+      "name": "NHK BS",
+      "icon": "https://i.imgur.com/t0uZcSR.png",
+      "url": null
+    },
+    {
+      "id": "beINSports.qa@MENA",
+      "slug": "beINSports.qa@MENA",
+      "name": "beIN SPORTS 1",
+      "icon": "https://i.imgur.com/RLrMBlm.png",
+      "url": null
+    },
+    {
+      "id": "SPOTV.kr@SD",
+      "slug": "SPOTV.kr@SD",
+      "name": "SPOTV",
+      "icon": "https://i.imgur.com/HaoVsm5.png",
+      "url": null
+    },
+    {
+      "id": "ArirangWorld.kr@SD",
+      "slug": "ArirangWorld.kr@SD",
+      "name": "Arirang World",
+      "icon": null,
+      "url": null
+    },
+    {
+      "id": "TV5MondeAsia.fr@SD",
+      "slug": "TV5MondeAsia.fr@SD",
+      "name": "TV5MONDE Asie",
+      "icon": "https://i.imgur.com/FRsRXRR.png",
+      "url": null
+    }
+  ]
+}
