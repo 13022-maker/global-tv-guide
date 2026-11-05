@@ -1,8 +1,10 @@
-// send-reminders：pg_cron 每 5 分鐘呼叫一次，把到期的提醒用 Resend 寄出
+// send-reminders：pg_cron 每 5 分鐘呼叫一次，把到期的提醒用 Email 寄出（Gmail SMTP 或 Resend）
 //
-// Secrets（Supabase Dashboard → Edge Functions → Secrets）
-//   RESEND_API_KEY   必填。沒設定時直接回 503，不會消耗任何提醒
-//   REMINDER_FROM    選填，預設「全球節目表 <onboarding@resend.dev>」（Resend 測試寄件人，只能寄給帳號本人）
+// 寄信方式（Supabase Dashboard → Edge Functions → Secrets），優先順序：
+//   1. Gmail SMTP：GMAIL_APP_PASSWORD（Google 帳戶的「應用程式密碼」）
+//                  GMAIL_USER 選填，預設 prpispace@gmail.com
+//   2. Resend：    RESEND_API_KEY，寄件人 REMINDER_FROM（要先在 Resend 驗證自有網域）
+//   兩者都沒設定時直接回 503，不會消耗任何提醒
 //   SITE_URL         選填，預設 https://global-tv-guide.vercel.app
 // 自動提供：SUPABASE_URL、SUPABASE_SERVICE_ROLE_KEY
 //
@@ -26,8 +28,29 @@ type Target = {
 };
 
 const SITE = (Deno.env.get('SITE_URL') ?? 'https://global-tv-guide.vercel.app').replace(/\/$/, '');
-const FROM = Deno.env.get('REMINDER_FROM') ?? '全球節目表 <onboarding@resend.dev>';
 const RESEND_KEY = Deno.env.get('RESEND_API_KEY');
+const GMAIL_USER = Deno.env.get('GMAIL_USER') ?? 'prpispace@gmail.com';
+const GMAIL_PASS = Deno.env.get('GMAIL_APP_PASSWORD')?.replace(/\s+/g, ''); // Google 顯示時有空格
+const PROVIDER: 'gmail' | 'resend' | null = GMAIL_PASS ? 'gmail' : RESEND_KEY ? 'resend' : null;
+const FROM =
+  PROVIDER === 'gmail'
+    ? `全球節目表 <${GMAIL_USER}>` // Gmail 只允許用登入帳號當寄件人
+    : (Deno.env.get('REMINDER_FROM') ?? '全球節目表 <onboarding@resend.dev>');
+
+// Supabase Edge Functions 擋 25／587 埠，Gmail 要走 465（SSL）
+let gmail: any = null;
+async function gmailTransport() {
+  if (!gmail) {
+    const nodemailer = (await import('npm:nodemailer@6.9.16')).default;
+    gmail = nodemailer.createTransport({
+      host: 'smtp.gmail.com',
+      port: 465,
+      secure: true,
+      auth: { user: GMAIL_USER, pass: GMAIL_PASS },
+    });
+  }
+  return gmail;
+}
 
 const sb = createClient(Deno.env.get('SUPABASE_URL')!, Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!, {
   auth: { persistSession: false },
@@ -122,6 +145,19 @@ ${t.extra ?? ''}
 
 async function sendOne(r: Claimed, email: string, t: Target) {
   const { subject, html, text } = buildEmail(t);
+  if (PROVIDER === 'gmail') {
+    const tr = await gmailTransport();
+    await tr.sendMail({
+      from: FROM,
+      to: email,
+      subject,
+      html,
+      text,
+      // 同一筆提醒固定同一個 Message-ID，萬一重送收件端也比較容易去重
+      messageId: `<reminder.${r.user_id}.${r.target_type}.${encodeURIComponent(r.target_id)}@global-tv-guide>`,
+    });
+    return;
+  }
   const res = await fetch('https://api.resend.com/emails', {
     method: 'POST',
     headers: {
@@ -141,9 +177,9 @@ Deno.serve(async (req) => {
   if (secErr || !secret || req.headers.get('x-cron-secret') !== secret) {
     return new Response('forbidden', { status: 403 });
   }
-  if (!RESEND_KEY) {
-    // 還沒設定 key：不領取任何提醒，等設定好下一輪就會寄
-    return Response.json({ ok: false, reason: 'RESEND_API_KEY not set' }, { status: 503 });
+  if (!PROVIDER) {
+    // 還沒設定寄信方式：不領取任何提醒，設定好下一輪就會寄
+    return Response.json({ ok: false, reason: 'no mail provider (set GMAIL_APP_PASSWORD or RESEND_API_KEY)' }, { status: 503 });
   }
 
   const { data: claimed, error } = await sb.rpc('claim_due_reminders', { p_limit: 50 });
@@ -188,5 +224,5 @@ Deno.serve(async (req) => {
     }
   }
 
-  return Response.json({ ok: true, ...result });
+  return Response.json({ ok: true, provider: PROVIDER, ...result });
 });
