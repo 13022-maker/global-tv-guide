@@ -113,3 +113,27 @@ h3 { font-size: 17px; margin: 24px 0 8px; }
   border: 1px solid var(--ok); background: color-mix(in srgb, var(--ok) 12%, transparent);
 }
 .remind-detail { margin: 8px 0 0; font-size: 14px; }
+
+/* 2027 跨年官方直播表 */
+.nye-next-label { margin: 16px 0 0; font-weight: 600; }
+.nye-next-label a { color: var(--accent); }
+.nye-list { list-style: none; padding: 0; margin: 0; }
+.nye-list li {
+  display: grid; grid-template-columns: 132px 1fr; gap: 12px;
+  padding: 16px 0; border-bottom: 1px solid var(--line); scroll-margin-top: 16px;
+}
+.nye-list li:target { background: color-mix(in srgb, var(--accent) 8%, transparent); }
+.nye-time .tw { display: block; font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; }
+.nye-time .diff { display: block; font-size: 13px; color: var(--muted); }
+.nye-city { margin: 0; font-size: 18px; font-weight: 700; }
+.nye-country { margin-left: 8px; font-size: 14px; font-weight: 400; color: var(--muted); }
+.nye-event { margin: 2px 0 0; }
+.nye-event small { display: block; color: var(--muted); font-size: 13px; }
+.nye-note { margin: 6px 0 0; font-size: 14px; color: var(--muted); }
+.nye-watch { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 10px; }
+.nye-watch .btn { font-size: 14px; padding: 6px 10px; }
+.nye-watch .region { color: var(--muted); font-size: 13px; }
+.ok-badge { color: var(--ok); border-color: var(--ok); }
+@media (max-width: 480px) {
+  .nye-list li { grid-template-columns: 1fr; gap: 4px; }
+}
