@@ -14,6 +14,12 @@ export default function Home() {
         </p>
       </header>
       <section>
+        <h2>特輯</h2>
+        <p>
+          <a href="/nye-2027">🎆 2027 跨年官方直播表：全世界幾點跨年、去哪裡看 →</a>
+        </p>
+      </section>
+      <section>
         <h2>即將開始</h2>
         <EventList events={events} />
         <p>
