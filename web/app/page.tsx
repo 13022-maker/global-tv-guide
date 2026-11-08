@@ -16,6 +16,9 @@ export default function Home() {
       <section>
         <h2>特輯</h2>
         <p>
+          <a href="/now">📺 此刻全世界在播什麼：各國電視台節目表（台灣時間）→</a>
+        </p>
+        <p>
           <a href="/nye-2027">🎆 2027 跨年官方直播表：全世界幾點跨年、去哪裡看 →</a>
         </p>
       </section>
