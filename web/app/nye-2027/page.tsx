@@ -10,11 +10,11 @@ const SITE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://example.com';
 export const metadata: Metadata = {
   title: '2027 跨年官方直播表：全世界跨年台灣時間一覽｜全球節目表',
   description:
-    '從紐西蘭到美國，全世界跨年倒數的台灣時間與官方免費直播管道。跨年要跨 26 小時，一頁看完每個城市幾點跨年、去哪裡看。',
+    '從紐西蘭到美國，全世界跨年倒數的台灣時間與官方免費直播管道。跨年要跨 25 小時，一頁看完每個城市幾點跨年、去哪裡看。',
   alternates: { canonical: '/nye-2027' },
   openGraph: {
     title: '2027 跨年官方直播表（台灣時間）',
-    description: '全世界跨年要跨 26 小時。每個城市幾點跨年、官方直播在哪裡看。',
+    description: '全世界跨年要跨 25 小時。每個城市幾點跨年、官方直播在哪裡看。',
     type: 'website',
   },
 };
